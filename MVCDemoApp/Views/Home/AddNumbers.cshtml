@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "AddNumbers";
+}
+
+<h2>AddNumbers</h2>
+
+<form method="post" action="">
+    <table>
+        <tr>
+            <th>Number</th>
+            <td>
+                <input type="number" name="num1" />
+            </td>
+        </tr>
+        <tr>
+            <th>Number</th>
+            <td>
+                <input type="number" name="num2" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+    <h3>
+        &emsp;&emsp; &emsp;  @ViewBag.sum
+    </h3>
+
+</form>
+
+@*
+    &nbsp;  1
+    &ensp;  2
+    &emsp;  4   
+ *@

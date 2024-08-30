@@ -1,0 +1,70 @@
+﻿@model MVCDemoApp.Models.EMP
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <table class="table table-success">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EMPNO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ENAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MGR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HIREDATE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SAL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.COMM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DEPTNO)
+            </th>
+            <th></th>
+        </tr>
+       
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.EMPNO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ENAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.JOB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.MGR)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.HIREDATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.SAL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.COMM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.DEPTNO)
+                </td>              
+            </tr>       
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EMPNO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

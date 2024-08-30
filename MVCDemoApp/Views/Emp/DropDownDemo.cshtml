@@ -1,0 +1,47 @@
+﻿@model MVCDemoApp.ViewModels.DropDownViewModel
+
+@{
+    ViewBag.Title = "DropDownDemo";
+}
+
+<h2>DropDownDemo</h2>
+
+
+@using (Html.BeginForm("DropDownDemo", "Emp", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.DeptNo)
+
+    @*@Html.DropDownListFor(model-property, new SelectList(source, select-value column, display column),  new { html attribute --> trap onchange even and call Form submit() })*@
+
+
+    @Html.DropDownListFor(m => m.DeptNo, new SelectList(Model.DeptList, "Value", "Text"), new { onchange = "this.form.submit();" })
+}
+
+
+<br />
+<br />
+
+@Html.LabelFor(m => m.Dept.DEPTNO) @Html.TextBoxFor(m => m.Dept.DEPTNO)
+<br />
+@Html.LabelFor(m => m.Dept.DNAME) @Html.TextBoxFor(m => m.Dept.DNAME)
+<br />
+@Html.LabelFor(m => m.Dept.LOC) @Html.TextBoxFor(m => m.Dept.LOC)
+<br />
+
+<br />
+<br />
+
+@if (Model != null)
+{
+    <table class="table table-hover">
+
+        @foreach (var item in Model.EmpList)
+        {
+            <tr>
+                <td>@item.ENAME</td>
+                <td>@item.DEPTNO</td>
+                <td>@item.JOB</td>
+            </tr>
+        }
+    </table>
+}

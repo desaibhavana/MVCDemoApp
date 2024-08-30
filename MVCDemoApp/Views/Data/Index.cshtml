@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ADOLibrary.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-striped  table-primary">
+    <tr>
+        <th>Empno</th>
+        <th>Empname</th>      
+        <th>HireDate</th>       
+        <th>Salary</th>
+       
+    </tr>
+    @foreach (ADOLibrary.Employee item in Model)
+    {
+        <tr>
+            <td>@item.EmpNo </td>
+            <td>@item.EmpName</td>
+            <td>@item.HireDate</td>
+            <td>@item.Salary</td>
+        </tr>
+    }
+
+</table>
+

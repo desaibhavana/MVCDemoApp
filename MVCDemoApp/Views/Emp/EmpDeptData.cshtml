@@ -1,0 +1,32 @@
+﻿@model IEnumerable< MVCDemoApp.ViewModels.EmpDeptViewModel>
+@{
+    ViewBag.Title = "EmpDeptData";
+}
+<h2>EmpDeptData</h2>
+<table class="table table-striped">
+    <tr>
+        <th>EmpNo</th>
+        <th>Emp Name</th>
+        <th>Job</th>
+        <th>HireDate</th>
+        <th>Exp-Years</th>
+        <th>Salary</th>
+        <th>Commission</th>
+        <th>Dept Name</th>
+        <th>Dept Loc</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Emp.EMPNO</td>
+            <td>@item.Emp.ENAME</td>
+            <td>@item.Emp.JOB</td>
+            <td>@item.Emp.HIREDATE</td>
+            <td>@item.YearsCompleted</td>
+            <td style="color:@item.SalaryColor">@item.Emp.SAL</td>
+            <td>@item.Emp.COMM</td>
+            <td>@item.Dept.DNAME</td>
+            <td>@item.Dept.LOC</td>
+        </tr>
+    }
+</table>

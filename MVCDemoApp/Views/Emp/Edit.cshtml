@@ -1,0 +1,86 @@
+﻿@model MVCDemoApp.Models.EMP
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div>
+        @Html.LabelFor(model => model.EMPNO)
+
+        @Html.EditorFor(model => model.EMPNO)
+        @Html.ValidationMessageFor(model => model.EMPNO, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.ENAME)
+
+        @Html.EditorFor(model => model.ENAME)
+        @Html.ValidationMessageFor(model => model.ENAME, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.JOB)
+
+        @Html.EditorFor(model => model.JOB)
+        @Html.ValidationMessageFor(model => model.JOB, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.MGR)
+
+        @*@Html.EditorFor(model => model.MGR)*@
+        @Html.TextBoxFor(m => m.MGR)
+        @Html.ValidationMessageFor(model => model.MGR, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.HIREDATE)
+
+        @Html.TextBoxFor(model => model.HIREDATE, new { @type = "datetime-local" })
+        @Html.ValidationMessageFor(model => model.HIREDATE, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.SAL)
+
+        @Html.EditorFor(model => model.SAL)
+        @Html.ValidationMessageFor(model => model.SAL, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.COMM)
+
+        @Html.EditorFor(model => model.COMM)
+        @Html.ValidationMessageFor(model => model.COMM, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.DEPTNO)
+
+        @Html.EditorFor(model => model.DEPTNO)
+        @Html.ValidationMessageFor(model => model.DEPTNO, "", new { @class = "text-danger" })
+    </div>
+
+    <div>
+        <input type="submit" value="Edit" class="btn btn-primary" />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

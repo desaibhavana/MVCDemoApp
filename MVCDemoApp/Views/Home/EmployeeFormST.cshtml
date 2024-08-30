@@ -1,0 +1,72 @@
+﻿@model MVCDemoApp.Models.Employee
+
+@{
+    ViewBag.Title = "EmployeeFormST";
+}
+
+<style>
+    .field-validation-valid {
+        display: none;
+    }
+</style>
+@section scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+@section heading {
+    EmployeeFormST
+}
+
+
+@*<form action="DisplayEmployeeST" method="post">
+       EmpId : <input type="text" name="EmpId" value="@Model.EmpId" />
+        <br />
+       EmpName :  <input type="text" name="EmpName" value="@Model.EmpName" />
+        <br />
+       Salary :  <input type="text" name="Salary" value="@Model.Salary" />
+        <br />
+        <input type="submit" />
+    </form>*@
+
+@*Html.BeginForm( "action", "controller", method)*@
+@using (Html.BeginForm("DisplayEmployeeST", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.EmpId)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.EmpId)
+                <span class="text-danger"> @Html.ValidationMessageFor(m => m.EmpId, "*") </span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.EmpName)
+
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.EmpName)
+                @*<span class="text-danger"> @Html.ValidationMessageFor(m => m.EmpName) </span>*@
+                @Html.ValidationMessageFor(m => m.EmpName, "*", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.Salary)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.Salary)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" class="btn btn-primary" />
+            </td>
+        </tr>
+    </table>
+}

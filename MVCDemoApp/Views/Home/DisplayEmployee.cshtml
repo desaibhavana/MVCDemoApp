@@ -1,0 +1,18 @@
+﻿@using MVCDemoApp.Models
+
+@{
+    ViewBag.Title = "DisplayEmployee";
+}
+
+<h2>DisplayEmployee</h2>
+
+@{
+    Employee employee = ViewBag.emp;
+}
+
+EmpId : employee.EmpId
+<br />
+EmpName : employee.EmpName
+<br />
+Salary : employee.Salary
+<br />

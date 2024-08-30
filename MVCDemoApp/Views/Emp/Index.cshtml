@@ -1,0 +1,116 @@
+﻿@*@model IEnumerable<MVCDemoApp.Models.EMP>*@
+
+@model PagedList.IPagedList<MVCDemoApp.Models.EMP>
+@using PagedList.Mvc;
+
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create", "Create")
+</p>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        <p>
+            Find by name: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" />
+        </p>
+    }
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.EMPNO)*@
+
+            @*@Html.ActionLink("Emp No", "Index", new { sortOrder = ViewBag.NoSortParam })*@
+
+            @Html.ActionLink("Emp No", "Index", new { sortOrder = ViewBag.NoSortParam, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.ENAME)*@
+
+            @*@Html.ActionLink("Emp Name", "Index", new { sortOrder = ViewBag.NameSortParam })*@
+
+            @Html.ActionLink("Emp Name", "Index", new { sortOrder = ViewBag.NameSortParam, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.JOB)*@
+
+            @*@Html.ActionLink("Job", "Index", new { sortOrder = ViewBag.JobSortParam })*@
+            @Html.ActionLink("Job", "Index", new { sortOrder = ViewBag.JobSortParam, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.MGR)*@
+            MGR
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.HIREDATE)*@
+            Hiredate
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.SAL)*@
+            SALARY
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.COMM)*@
+            
+            Comm
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.DEPTNO)*@
+
+            @*@Html.ActionLink("Deptno", "Index", new { sortOrder = ViewBag.DeptSortParam })*@
+            @Html.ActionLink("Deptno", "Index", new { sortOrder = ViewBag.DeptSortParam, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMPNO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ENAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MGR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HIREDATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SAL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.COMM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DEPTNO)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EMPNO }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EMPNO }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EMPNO })
+            </td>
+        </tr>
+    }
+</table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

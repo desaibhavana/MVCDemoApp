@@ -1,0 +1,20 @@
+﻿@using MVCDemoApp.Models
+@{
+    ViewBag.Title = "ModelDemo";
+}
+
+<h2>ModelDemo</h2>
+
+EmpId : @ViewBag.employee.EmpId
+<br />
+EmpName : @ViewBag.employee.EmpName
+<br />
+Salary : @ViewBag.employee.Salary
+<br />
+
+<hr/>
+@{ 
+    Employee empl = ViewData["emp"] as Employee;
+        }
+
+@empl.EmpId

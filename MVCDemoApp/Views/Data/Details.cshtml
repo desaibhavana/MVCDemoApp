@@ -1,0 +1,44 @@
+﻿@model ADOLibrary.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <th>Enter Empno</th>
+            <td>@Html.TextBoxFor(m => m.EmpNo) </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" />
+            </td>
+        </tr>
+    </table> 
+}
+
+<br/><br/>
+
+@if (Model != null )
+{
+ 
+        <table class="table table-striped  ">
+            <tr>
+                <th>Empno</th>
+                <th>Empname</th>
+                <th>HireDate</th>
+                <th>Salary</th>
+
+            </tr>
+            <tr>
+                <td>@Model.EmpNo </td>
+                <td>@Model.EmpName</td>
+                <td>@Model.HireDate</td>
+                <td>@Model.Salary</td>
+            </tr>
+        </table>  
+}

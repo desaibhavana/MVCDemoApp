@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Display</h2>
+
+<h3>@DateTime.Now</h3>
+<br/>
+
+ViewBag    &emsp;  &emsp;   @ViewBag.data
+<br />
+ViewData  &emsp;&emsp;      @ViewData["data1"]
+<br />
+TempData   &emsp;&emsp;     @TempData["tempdata"]
+<br />
+Session   &emsp;&emsp;      @Session["sessiondata"]
+
+<br/>
+
+<a href="~/demo/Display">Demo-Display</a>
